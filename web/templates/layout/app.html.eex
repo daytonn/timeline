@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Timeine of events">
+    <meta name="author" content="Dayton Nolan">
+    <title>Timeline</title>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+  </head>
+  <body>
+    <%= if notifications? @conn do %>
+      <div id="notifications">
+        <%= if info? @conn do %>
+          <p class="info"><%= get_flash(@conn, :info) %></p>
+        <% end %>
+
+        <%= if error? @conn do %>
+          <p class="error"><%= get_flash(@conn, :error) %></p>
+        <% end %>
+      </div>
+    <% end %>
+    <section id="content">
+      <%= @inner %>
+    </section>
+    <footer id="footer"></footer>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script>require("web/static/js/app")</script>
+  </body>
+</html>

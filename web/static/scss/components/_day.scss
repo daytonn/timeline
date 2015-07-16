@@ -1,0 +1,92 @@
+%date-segment {
+  display: inline-block;
+  margin-right: .25em;
+}
+
+%display-on-hover {
+  @include transition(opacity 0.3s ease-in);
+  opacity: 0;
+}
+
+.day {
+  overflow: hidden;
+  display: inline-block;
+  height: 300px;
+  width: 300px;
+  padding: .25em .75em;
+  border-right: dotted 1px #333;
+
+  &.today {
+    background: lighten($blue, 50%);
+
+    .month,
+    .year {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    .month,
+    .year {
+      opacity: 1.0;
+    }
+  }
+
+  .date {
+    font-size: 2em;
+    color: $blue;
+  }
+
+  .month {
+    @extend %display-on-hover;
+    color: $light-gray;
+    margin: 0 .25em 0 0;
+  }
+
+  .year {
+    @extend %display-on-hover;
+    color: $light-gray;
+  }
+}
+// .day {
+
+//   .month {
+//     @extend %date-segment;
+//     @extend %display-on-hover;
+//     margin: .25em .5em 0 -1.5em;
+//   }
+
+//   &:hover {
+//     .month {
+//       opacity: 1.0;
+//     }
+
+//     .year {
+//       opacity: 1.0;
+//     }
+//   }
+
+//   &.today {
+//     background: #ABE8A9;
+
+//     .month {
+//       opacity: 1;
+//     }
+//   }
+
+//   .date {
+//     @extend %date-segment;
+//     position: absolute;
+//     font-size: 2em;
+//     font-weight: bold;
+//     color: red;
+//     margin: -1em 0 0 -.75em;
+//   }
+
+//   .year {
+//     @extend %date-segment;
+//     @extend %display-on-hover;
+//     position: absolute;
+//     margin: .25em 0 0 0;
+//   }
+// }

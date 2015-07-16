@@ -1,0 +1,9 @@
+@import "month";
+
+.calendar-stream {
+  width: 100%;
+  overflow: scroll;
+  white-space: nowrap;
+  border-top: solid 1px $gray;
+  border-bottom: solid 1px $gray;
+}
