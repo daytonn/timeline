@@ -1,6 +1,7 @@
-import {times, groupBy, values, each, reduce, map} from "bower_components/lodash/lodash";
+import {times, groupBy, values, each, reduce, map, where} from "bower_components/lodash/lodash";
 import React from "bower_components/react/react";
 import moment from "bower_components/moment/moment";
+import $ from "../lib/dom";
 import Month from "./month";
 import Day from "./day";
 
@@ -26,6 +27,10 @@ function dayNodes(days) {
 }
 
 export default React.createClass({
+  componentDidMount() {
+    $.first(".this-week").scrollIntoView();
+  },
+
   getInitialState() {
     return {
       year: parseInt(moment().format("YYYY"), 10),

@@ -10,10 +10,6 @@ export default React.createClass({
     return moment().week() === first(this.props.days).timestamp.week();
   },
 
-  componentDidMount() {
-    first(document.querySelectorAll(".this-week")).scrollIntoView();
-  },
-
   render() {
     var classes = classNames({
       'week': true,

@@ -2,6 +2,7 @@ import React from "bower_components/react/react";
 import moment from "bower_components/moment/moment";
 import {first} from "bower_components/lodash/lodash";
 
+
 function getTime() {
   return { time: moment().format("hh:mm:ss a") };
 }
@@ -13,7 +14,7 @@ export default React.createClass({
 
   componentDidMount() {
     setInterval(this.updateTime, 1000);
-    React.findDOMNode(this).addEventListener("click", () => { first($(".today")).scrollIntoView() }, false);
+    React.findDOMNode(this).addEventListener("click", () => { first(document.querySelectorAll(".today")).scrollIntoView() }, false);
   },
 
   getInitialState() {
